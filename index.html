@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Alpha Mind Challenge — El evento de calistenia, mentalidad y disciplina más grande de la frontera norte. Tulcán 2026.">
+  <meta name="keywords" content="Alpha Mind, Challenge, calistenia, Tulcán, deporte, fitness, competencia">
+  <meta property="og:title" content="Alpha Mind Challenge 2026">
+  <meta property="og:description" content="Domina tu Mente. Conquista tu Cuerpo. Lidera tu Tierra.">
+  <title>Alpha Mind Challenge 2026 | Tulcán</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- SCROLL PROGRESS -->
+  <div id="scroll-progress"></div>
+
+  <!-- ══ NAVBAR ══════════════════════════════════════════════ -->
+  <nav id="navbar">
+    <a class="nav-logo" href="index.html">
+      <img src="img/logo-am.png" alt="Alpha Mind Logo">
+      <span>Alpha Mind</span>
+    </a>
+
+    <button class="nav-toggle" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="pages/nosotros.html">Nosotros</a></li>
+      <li><a href="pages/cronograma.html">Cronograma</a></li>
+      <li><a href="pages/galeria.html">Galería</a></li>
+      <li><a href="pages/inscripciones.html" class="nav-cta">Inscribirme</a></li>
+    </ul>
+  </nav>
+
+  <!-- ══ HERO ════════════════════════════════════════════════ -->
+  <section id="hero">
+    <!-- Video de fondo — reemplazar src con video real -->
+    <video id="hero-video" autoplay muted loop playsinline poster="">
+      <source src="videos/hero-bg.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <canvas  style="position:absolute;inset:0;width:100%;height:100%;"></canvas>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">Alpha Mind Corporation · Tulcán 2026</p>
+
+      <h1 class="hero-title">
+        Domina tu<span class="line-red">Mente.</span>
+        <span class="line-silver">Conquista</span>
+      </h1>
+      <h1 class="hero-title" style="font-size: clamp(2rem,7vw,5.5rem); margin-top:.4rem; animation-delay:.5s;">
+        Tu Cuerpo. Lidera Tu Tierra.
+      </h1>
+
+      <p class="hero-sub">
+        El desafío de calistenia, mentalidad y disciplina que está revolucionando el deporte en la frontera norte del Ecuador.
+      </p>
+
+      <div class="hero-actions">
+        <a href="pages/inscripciones.html" class="btn-primary">
+          <span>⚡</span> Inscribirme Ahora — $25
+        </a>
+        <a href="#sobre" class="btn-secondary">
+          <span>▶</span> Descubrir más
+        </a>
+      </div>
+    </div>
+
+  <!--<div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-arrow"></div>
+    </div>-->
+  </section>
+
+  <!-- ══ CONTADOR ════════════════════════════════════════════ -->
+  <section id="countdown" style="padding:0;">
+    <div id="contador">
+      <p class="text-center section-label" style="margin-bottom:1.5rem;">Gran Final · Coliseo de Tulcán</p>
+      <div class="contador-grid">
+        <div class="contador-block">
+          <div class="contador-number" id="cd-days">00</div>
+          <div class="contador-label">Días</div>
+        </div>
+        <div class="contador-block">
+          <div class="contador-number" id="cd-hours">00</div>
+          <div class="contador-label">Horas</div>
+        </div>
+        <div class="contador-block">
+          <div class="contador-number" id="cd-mins">00</div>
+          <div class="contador-label">Minutos</div>
+        </div>
+        <div class="contador-block">
+          <div class="contador-number" id="cd-secs">00</div>
+          <div class="contador-label">Segundos</div>
+        </div>
+      </div>
+      <p class="contador-event-date">22 · 08 · 2026 — Grandes Eliminatorias Alpha Mind Challenge</p>
+    </div>
+  </section>
+
+  <!-- ══ SOBRE EL EVENTO ═════════════════════════════════════ -->
+  <section id="sobre" class="section">
+    <div class="sobre-grid">
+      <div class="sobre-logo-wrap" data-reveal>
+        <img src="img/logo-challenge.png" alt="Alpha Mind Challenge Logo">
+      </div>
+      <div>
+        <span class="section-label">¿Qué es Alpha Mind?</span>
+        <h2 class="section-title">El Desafío que<br><span>Cambiará</span> tu Destino</h2>
+        <div class="red-divider"></div>
+        <p class="section-subtitle" style="max-width:100%;">
+          Alpha Mind Corporation no es solo una competencia; es un ecosistema de transformación integral. Fusionamos el desarrollo de una mentalidad inquebrantable, el rigor de la calistenia estricta y los pilares de la disciplina. Llevamos a los atletas a romper sus límites para convertirse en los líderes que nuestra sociedad necesita.
+        </p>
+
+        <div class="pilares-grid" style="margin-top:2rem;">
+          <div class="pilar-card" data-reveal data-delay="100">
+            <span class="pilar-icon">🧠</span>
+            <p class="pilar-name">Mentalidad</p>
+            <p class="pilar-desc">Forja una mente inquebrantable bajo presión</p>
+          </div>
+          <div class="pilar-card" data-reveal data-delay="200">
+            <span class="pilar-icon">💪</span>
+            <p class="pilar-name">Cuerpo</p>
+            <p class="pilar-desc">Calistenia estricta para esculpir tu mejor versión</p>
+          </div>
+          <div class="pilar-card" data-reveal data-delay="300">
+            <span class="pilar-icon">💰</span>
+            <p class="pilar-name">Prosperidad</p>
+            <p class="pilar-desc">Disciplina financiera y liderazgo social</p>
+          </div>
+        </div>
+
+        <div style="margin-top:2rem;">
+          <a href="pages/nosotros.html" class="btn-secondary">Conocer más ›</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ KIT ALPHA MIND ═════════════════════════════════════ -->
+  <section id="kit" class="section">
+    <div class="text-center" data-reveal>
+      <span class="section-label">Inscripción · $25</span>
+      <h2 class="section-title">Tu Arsenal de <span>Transformación</span></h2>
+      <div class="red-divider"></div>
+      <p class="section-subtitle">Al inscribirte oficialmente recibes el kit completo para iniciar tu proceso el domingo 19 de julio en Tulcán.</p>
+    </div>
+
+    <div class="kit-grid" style="margin-top:3rem;">
+      <div class="kit-card" data-reveal data-delay="100">
+        <span class="kit-emoji">📘</span>
+        <p class="kit-name">Libro Alpha Mind</p>
+        <p class="kit-desc">El manual definitivo con las claves de mentalidad y enfoque estratégico.</p>
+      </div>
+      <div class="kit-card" data-reveal data-delay="200">
+        <span class="kit-emoji">🗓️</span>
+        <p class="kit-name">Calendario de Entrenamiento</p>
+        <p class="kit-desc">Guía estricta de 30 días para esculpir tu mejor versión antes de la competencia.</p>
+      </div>
+      <div class="kit-card" data-reveal data-delay="300">
+        <span class="kit-emoji">🍫</span>
+        <p class="kit-name">Pack Chocodely</p>
+        <p class="kit-desc">10 unidades de barras premium para energía y enfoque previo a cada entrenamiento.</p>
+      </div>
+      <div class="kit-card" data-reveal data-delay="400">
+        <span class="kit-emoji">👕</span>
+        <p class="kit-name">Camiseta Oficial</p>
+        <p class="kit-desc">Tu armadura para representar con orgullo al movimiento en la arena.</p>
+      </div>
+    </div>
+
+    <div class="text-center" style="margin-top:3rem;" data-reveal data-delay="500">
+      <a href="pages/inscripciones.html" class="btn-primary">
+        <span>⚡</span> Asegurar mi Kit — $25
+      </a>
+    </div>
+  </section>
+
+  <!-- ══ PREMIOS ════════════════════════════════════════════ -->
+  <section id="premios" class="section">
+    <div class="text-center" data-reveal>
+      <span class="section-label">Recompensas</span>
+      <h2 class="section-title">Para los <span>Indestructibles</span></h2>
+      <div class="red-divider"></div>
+    </div>
+
+    <div class="premios-grid" style="margin-top:3rem;">
+      <div class="premio-card" data-reveal data-delay="100">
+        <span class="premio-amount">$800</span>
+        <p class="premio-label">Premio Principal</p>
+        <p class="premio-desc">Efectivo en mano para los campeones absolutos de la categoría Élite.</p>
+      </div>
+      <div class="premio-card" data-reveal data-delay="200">
+        <span class="premio-amount"><img src="{pages,css,js,img,videos}/anillo2.png" alt="Anillo Alpha" style="width:100%;height:auto;"></span>
+        <p class="premio-label">Anillo de Campeonato</p>
+        <p class="premio-desc">Joya exclusiva forjada en Tungsteno y Fibra de Carbono. Una pieza de leyenda.</p>
+      </div>
+      <div class="premio-card" data-reveal data-delay="300">
+        <span class="premio-amount">$200</span>
+        <p class="premio-label">Premio Popularidad</p>
+        <p class="premio-desc">En cuentas de ahorro para el atleta más viral e impactante en redes sociales.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ DOCUMENTOS IMPORTANTES ══════════════════════════════ -->
+  <section id="documentos" class="section">
+    <div class="text-center" data-reveal>
+      <span class="section-label">Información Oficial</span>
+      <h2 class="section-title">Documentos <span>Importantes</span></h2>
+      <div class="red-divider"></div>
+      <p class="section-subtitle">Descarga los archivos oficiales del evento para conocer todos los detalles de la competencia.</p>
+    </div>
+
+    <div class="docs-grid" style="margin-top:3rem;">
+      <div class="doc-card" data-reveal data-delay="100">
+        <div class="doc-icon">📋</div>
+        <h3 class="doc-title">Reglamento</h3>
+        <p class="doc-desc">Normas, reglas y código de conducta oficial del Alpha Mind Challenge 2026.</p>
+        <a href="#" class="doc-btn">⬇ Descargar PDF</a>
+      </div>
+      <div class="doc-card" data-reveal data-delay="200">
+        <div class="doc-icon">📜</div>
+        <h3 class="doc-title">Bases de Competencia</h3>
+        <p class="doc-desc">Criterios de evaluación, categorías y requisitos para participar oficialmente.</p>
+        <a href="#" class="doc-btn">⬇ Descargar PDF</a>
+      </div>
+      <div class="doc-card" data-reveal data-delay="300">
+        <div class="doc-icon">🗓</div>
+        <h3 class="doc-title">Cronograma Oficial</h3>
+        <p class="doc-desc">Fechas, fases, horarios y ubicaciones de todas las etapas del evento.</p>
+        <a href="pages/cronograma.html" class="doc-btn">Ver Cronograma</a>
+      </div>
+      <div class="doc-card" data-reveal data-delay="400">
+        <div class="doc-icon">ℹ️</div>
+        <h3 class="doc-title">Guía del Atleta</h3>
+        <p class="doc-desc">Todo lo que necesitas saber para prepararte y destacar en el challenge.</p>
+        <a href="#" class="doc-btn">⬇ Descargar PDF</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ GALERÍA DESTACADA ═══════════════════════════════════ -->
+  <section id="galeria-home" class="section">
+    <div class="text-center" data-reveal>
+      <span class="section-label">Galería</span>
+      <h2 class="section-title">El Movimiento <span>en Acción</span></h2>
+      <div class="red-divider"></div>
+    </div>
+
+    <div class="gallery-grid" style="margin-top:2.5rem;">
+      <!-- Imagen destacada principal -->
+      <div class="gallery-item" data-reveal>
+        <div class="gallery-placeholder" style="height:100%;">
+          <span class="ph-icon">🏆</span>
+          <span>Foto Atletas<br>Principal</span>
+        </div>
+        <div class="gallery-item-overlay">
+          <span class="gallery-item-label">Alpha Mind Challenge · 2026</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-reveal data-delay="100">
+        <div class="gallery-placeholder" style="height:100%;">
+          <span class="ph-icon">💪</span>
+          <span>Calistenia<br>Competencia</span>
+        </div>
+        <div class="gallery-item-overlay">
+          <span class="gallery-item-label">Reto Físico</span>
+        </div>
+      </div>
+      <div class="gallery-item" data-reveal data-delay="200">
+        <div class="gallery-placeholder" style="height:100%;">
+          <span class="ph-icon">🧠</span>
+          <span>Mentalidad<br>Élite</span>
+        </div>
+        <div class="gallery-item-overlay">
+          <span class="gallery-item-label">Disciplina Mental</span>
+        </div>
+      </div>
+      <div class="gallery-item" data-reveal data-delay="300">
+        <div class="gallery-placeholder" style="height:100%;">
+          <span class="ph-icon">🌟</span>
+          <span>Premios<br>Ceremonia</span>
+        </div>
+        <div class="gallery-item-overlay">
+          <span class="gallery-item-label">Campeones</span>
+        </div>
+      </div>
+      <div class="gallery-item" data-reveal data-delay="400">
+        <div class="gallery-placeholder" style="height:100%;">
+          <span class="ph-icon">🔥</span>
+          <span>Comunidad<br>Alpha</span>
+        </div>
+        <div class="gallery-item-overlay">
+          <span class="gallery-item-label">Comunidad</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center" data-reveal>
+      <a href="pages/galeria.html" class="btn-secondary">Ver Galería Completa ›</a>
+    </div>
+  </section>
+
+  <!-- ══ PATROCINADORES ══════════════════════════════════════ -->
+  <section id="patrocinadores" class="section" style="padding:4rem 0;">
+    <div class="text-center" data-reveal style="padding:0 1.5rem;">
+      <span class="section-label">Respaldo Institucional</span>
+      <h2 class="section-title" style="font-size:clamp(1.8rem,4vw,3rem);">Marcas que Creen en el <span>Futuro del Norte</span></h2>
+      <div class="red-divider"></div>
+      <p class="section-subtitle">Un evento respaldado por instituciones que fomentan el crecimiento económico y social de nuestra comunidad.</p>
+    </div>
+
+    <div class="sponsors-track-wrap" style="margin-top:2.5rem;">
+      <div class="sponsors-track">
+        <!-- Duplicar para loop infinito -->
+        <div class="sponsor-item"><p class="sponsor-placeholder">PATROCINADOR<br>OFICIAL</p></div>
+        <div class="sponsor-item"><p class="sponsor-placeholder">PATROCINADOR<br>OFICIAL</p></div>
+        <div class="sponsor-item"><p class="sponsor-placeholder">PATROCINADOR<br>OFICIAL</p></div>
+        <div class="sponsor-item"><p class="sponsor-placeholder">PATROCINADOR<br>OFICIAL</p></div>
+        <div class="sponsor-item"><p class="sponsor-placeholder">PATROCINADOR<br>OFICIAL</p></div>
+        <div class="sponsor-item"><p class="sponsor-placeholder">PATROCINADOR<br>OFICIAL</p></div>
+        <!-- Duplicados para animación infinita -->
+        <div class="sponsor-item"><p class="sponsor-placeholder">PATROCINADOR<br>OFICIAL</p></div>
+        <div class="sponsor-item"><p class="sponsor-placeholder">PATROCINADOR<br>OFICIAL</p></div>
+        <div class="sponsor-item"><p class="sponsor-placeholder">PATROCINADOR<br>OFICIAL</p></div>
+        <div class="sponsor-item"><p class="sponsor-placeholder">PATROCINADOR<br>OFICIAL</p></div>
+        <div class="sponsor-item"><p class="sponsor-placeholder">PATROCINADOR<br>OFICIAL</p></div>
+        <div class="sponsor-item"><p class="sponsor-placeholder">PATROCINADOR<br>OFICIAL</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ═════════════════════════════════════════════ -->
+  <footer id="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="img/logo-am.png" alt="Alpha Mind">
+        <p>Alpha Mind Corporation — Ecosistema de transformación integral para atletas, líderes y visionarios del norte del Ecuador.</p>
+        <div class="footer-social" style="margin-top:1.2rem;">
+          <a href="#" class="social-btn" aria-label="Instagram">📸</a>
+          <a href="#" class="social-btn" aria-label="Facebook">📘</a>
+          <a href="#" class="social-btn" aria-label="TikTok">🎵</a>
+          <a href="#" class="social-btn" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="pages/nosotros.html">Nosotros</a></li>
+          <li><a href="pages/cronograma.html">Cronograma</a></li>
+          <li><a href="pages/galeria.html">Galería</a></li>
+          <li><a href="pages/inscripciones.html">Inscripciones</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Fases del Evento</h4>
+        <ul>
+          <li><a href="pages/cronograma.html">Reto 21 Días</a></li>
+          <li><a href="pages/cronograma.html">Entrega de Kits</a></li>
+          <li><a href="pages/cronograma.html">Mes de Tráfico</a></li>
+          <li><a href="pages/cronograma.html">Eliminatorias</a></li>
+          <li><a href="pages/cronograma.html">Gran Final</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul class="footer-contact">
+          <li><span>📍</span> Tulcán, Carchi, Ecuador</li>
+          <li><span>✉</span> <a href="mailto:info@alphamindchallenge.com">info@alphamindchallenge.com</a></li>
+          <li><span>📱</span> Redes sociales disponibles</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Alpha Mind Corporation. Todos los derechos reservados.</p>
+      <p style="color:var(--rojo-alpha);">DOMINA · CONQUISTA · LIDERA</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

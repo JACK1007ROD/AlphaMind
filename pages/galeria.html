@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galería | Alpha Mind Challenge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    /* Filtros de galería */
+    .gallery-filters {
+      display: flex;
+      gap: .75rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+    }
+    .filter-btn {
+      font-family: var(--font-ui);
+      font-size: .62rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      padding: .5rem 1.2rem;
+      background: transparent;
+      border: 1px solid rgba(139,144,152,.3);
+      color: var(--plata-oscuro);
+      cursor: pointer;
+      transition: all .3s;
+      clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      border-color: var(--rojo-alpha);
+      color: var(--blanco);
+      background: rgba(193,18,31,.1);
+    }
+
+    /* Placeholder masonry items */
+    .gallery-ph {
+      background: linear-gradient(135deg, var(--negro-secundario), rgba(193,18,31,.06));
+      border: 1px dashed rgba(139,144,152,.15);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .75rem;
+      color: var(--plata-oscuro);
+      font-family: var(--font-ui);
+      font-size: .6rem;
+      letter-spacing: .2em;
+      text-align: center;
+      padding: 3rem 1.5rem;
+    }
+    .gallery-ph .ph-big { font-size: 3rem; opacity: .25; }
+
+    /* Testimonios slider */
+    .testimonios-slider { overflow: hidden; position: relative; }
+    .testimonios-track {
+      display: flex;
+      gap: 1.5rem;
+      animation: scrollTrack 20s linear infinite;
+      width: max-content;
+    }
+    .testimonio-card {
+      width: 320px;
+      flex-shrink: 0;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      padding: 1.8rem;
+    }
+    .testimonio-text {
+      font-size: .95rem;
+      color: var(--plata);
+      line-height: 1.8;
+      font-style: italic;
+      margin-bottom: 1.2rem;
+    }
+    .testimonio-author {
+      font-family: var(--font-ui);
+      font-size: .6rem;
+      letter-spacing: .2em;
+      color: var(--rojo-alpha);
+      text-transform: uppercase;
+    }
+    .stars { color: var(--dorado); font-size: .9rem; margin-bottom: .5rem; }
+
+    /* Video grid */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .video-card {
+      position: relative;
+      background: var(--negro-secundario);
+      border: 1px solid var(--glass-border);
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .video-card:hover .play-icon { opacity: 1; transform: translate(-50%,-50%) scale(1.1); }
+    .video-thumb {
+      aspect-ratio: 16/9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(193,18,31,.1), var(--negro-secundario));
+      color: var(--plata-oscuro);
+      font-family: var(--font-ui);
+      font-size: .65rem;
+      letter-spacing: .2em;
+      flex-direction: column;
+      gap: .75rem;
+    }
+    .play-icon {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: rgba(193,18,31,.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: #fff;
+      opacity: .8;
+      transition: opacity .3s, transform .3s;
+      border: 2px solid rgba(255,255,255,.3);
+    }
+    .video-label {
+      padding: 1rem;
+      font-family: var(--font-ui);
+      font-size: .62rem;
+      letter-spacing: .15em;
+      color: var(--plata-oscuro);
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="scroll-progress"></div>
+
+  <nav id="navbar">
+    <a class="nav-logo" href="../index.html">
+      <img src="../img/logo-am.png" alt="Alpha Mind Logo">
+      <span>Alpha Mind</span>
+    </a>
+    <button class="nav-toggle" aria-label="Menú"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="../index.html">Inicio</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="cronograma.html">Cronograma</a></li>
+      <li><a href="galeria.html">Galería</a></li>
+      <li><a href="inscripciones.html" class="nav-cta">Inscribirme</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="nosotros-hero">
+    <div>
+      <span class="section-label">Galería Oficial</span>
+      <h1 class="section-title" style="font-size:clamp(3rem,8vw,6rem);">El Movimiento<br>en <span>Imágenes</span></h1>
+      <div class="red-divider"></div>
+      <p class="section-subtitle">Aquí vive la historia que estamos construyendo juntos.</p>
+    </div>
+  </section>
+
+  <!-- ══ FOTOS ══ -->
+  <section class="section" style="background:var(--negro-profundo);">
+    <div class="container">
+      <div class="text-center" data-reveal>
+        <span class="section-label">Fotografías</span>
+        <h2 class="section-title">Momentos <span>Alpha</span></h2>
+        <div class="red-divider"></div>
+      </div>
+
+      <!-- Filtros -->
+      <div class="gallery-filters" data-reveal>
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="atletismo">Atletismo</button>
+        <button class="filter-btn" data-filter="evento">Evento</button>
+        <button class="filter-btn" data-filter="comunidad">Comunidad</button>
+        <button class="filter-btn" data-filter="premios">Premios</button>
+      </div>
+
+      <!-- Masonry grid — placeholders para fotos reales -->
+      <div class="masonry-grid">
+        <div class="masonry-item"><div class="gallery-ph"><span class="ph-big">🏋️</span><span>Foto 01 · Calistenia</span></div></div>
+        <div class="masonry-item" style="margin-top:2rem;"><div class="gallery-ph"><span class="ph-big">💪</span><span>Foto 02 · Atleta</span></div></div>
+        <div class="masonry-item"><div class="gallery-ph"><span class="ph-big">🧠</span><span>Foto 03 · Mentalidad</span></div></div>
+
+        <div class="masonry-item"><div class="gallery-ph"><span class="ph-big">🏆</span><span>Foto 04 · Premios</span></div></div>
+        <div class="masonry-item"><div class="gallery-ph" style="padding:4rem 1.5rem;"><span class="ph-big">🔥</span><span>Foto 05 · Comunidad</span></div></div>
+        <div class="masonry-item" style="margin-top:1.5rem;"><div class="gallery-ph"><span class="ph-big">⚡</span><span>Foto 06 · Evento</span></div></div>
+
+        <div class="masonry-item"><div class="gallery-ph" style="padding:4rem 1.5rem;"><span class="ph-big">👊</span><span>Foto 07 · Competencia</span></div></div>
+        <div class="masonry-item"><div class="gallery-ph"><span class="ph-big">🌟</span><span>Foto 08 · Ganadores</span></div></div>
+        <div class="masonry-item" style="margin-top:1rem;"><div class="gallery-ph"><span class="ph-big">🎯</span><span>Foto 09 · Preparación</span></div></div>
+      </div>
+
+      <p class="text-center" style="margin-top:2rem;font-family:var(--font-ui);font-size:.62rem;letter-spacing:.2em;color:var(--plata-oscuro);text-transform:uppercase;">
+        Las fotografías del evento se irán cargando próximamente
+      </p>
+    </div>
+  </section>
+
+  <!-- ══ VIDEOS ══ -->
+  <section class="section" style="background:var(--negro-secundario);">
+    <div class="container">
+      <div class="text-center" data-reveal>
+        <span class="section-label">Contenido Multimedia</span>
+        <h2 class="section-title">Videos <span>Alpha Mind</span></h2>
+        <div class="red-divider"></div>
+        <p class="section-subtitle">Revive los momentos más intensos y motivacionales del movimiento.</p>
+      </div>
+
+      <div class="video-grid" style="margin-top:3rem;">
+        <div class="video-card" data-reveal>
+          <div class="video-thumb">
+            <span style="font-size:3rem;opacity:.2;">🎬</span>
+            <span>Video Motivacional 01</span>
+          </div>
+          <div class="play-icon">▶</div>
+          <p class="video-label">Reto 21 Días · Día 1</p>
+        </div>
+        <div class="video-card" data-reveal data-delay="150">
+          <div class="video-thumb">
+            <span style="font-size:3rem;opacity:.2;">🎬</span>
+            <span>Trailer Oficial</span>
+          </div>
+          <div class="play-icon">▶</div>
+          <p class="video-label">Alpha Mind Challenge · Trailer</p>
+        </div>
+        <div class="video-card" data-reveal data-delay="300">
+          <div class="video-thumb">
+            <span style="font-size:3rem;opacity:.2;">🎬</span>
+            <span>Entrenamiento Alpha</span>
+          </div>
+          <div class="play-icon">▶</div>
+          <p class="video-label">Sesión de Calistenia · Avanzado</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ TESTIMONIOS ══ -->
+  <section class="section" style="background:var(--negro-profundo);padding:4rem 0;overflow:hidden;">
+    <div class="text-center" style="padding:0 1.5rem;" data-reveal>
+      <span class="section-label">Voces Alpha</span>
+      <h2 class="section-title">Lo que dice la <span>Comunidad</span></h2>
+      <div class="red-divider"></div>
+    </div>
+
+    <div class="testimonios-slider" style="margin-top:2.5rem;padding:1rem 0;">
+      <div class="testimonios-track">
+        <div class="testimonio-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonio-text">"Alpha Mind cambió mi perspectiva de vida. No es solo calistenia, es una transformación completa de quién soy."</p>
+          <p class="testimonio-author">— Atleta Alpha · Tulcán</p>
+        </div>
+        <div class="testimonio-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonio-text">"El kit de entrenamiento es brutal. 30 días siguiendo el calendario y los resultados hablan solos."</p>
+          <p class="testimonio-author">— Participante · Carchi</p>
+        </div>
+        <div class="testimonio-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonio-text">"La comunidad Alpha Mind es lo que más me sorprendió. Gente con mentalidad de élite que te impulsa a dar el 100%."</p>
+          <p class="testimonio-author">— Competidor · Ibarra</p>
+        </div>
+        <div class="testimonio-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonio-text">"El evento más organizado y de mayor impacto que he vivido en el norte del Ecuador. Esto es transformación real."</p>
+          <p class="testimonio-author">— Atleta Alpha · Quito</p>
+        </div>
+        <!-- Duplicados para loop -->
+        <div class="testimonio-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonio-text">"Alpha Mind cambió mi perspectiva de vida. No es solo calistenia, es una transformación completa de quién soy."</p>
+          <p class="testimonio-author">— Atleta Alpha · Tulcán</p>
+        </div>
+        <div class="testimonio-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonio-text">"El kit de entrenamiento es brutal. 30 días siguiendo el calendario y los resultados hablan solos."</p>
+          <p class="testimonio-author">— Participante · Carchi</p>
+        </div>
+        <div class="testimonio-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonio-text">"La comunidad Alpha Mind es lo que más me sorprendió. Gente con mentalidad de élite que te impulsa a dar el 100%."</p>
+          <p class="testimonio-author">— Competidor · Ibarra</p>
+        </div>
+        <div class="testimonio-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonio-text">"El evento más organizado y de mayor impacto que he vivido en el norte del Ecuador. Esto es transformación real."</p>
+          <p class="testimonio-author">— Atleta Alpha · Quito</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../img/logo-am.png" alt="Alpha Mind">
+        <p>Alpha Mind Corporation — Ecosistema de transformación integral.</p>
+        <div class="footer-social" style="margin-top:1.2rem;">
+          <a href="#" class="social-btn">📸</a><a href="#" class="social-btn">📘</a><a href="#" class="social-btn">🎵</a><a href="#" class="social-btn">▶</a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Navegación</h4><ul>
+        <li><a href="../index.html">Inicio</a></li><li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="cronograma.html">Cronograma</a></li><li><a href="galeria.html">Galería</a></li>
+        <li><a href="inscripciones.html">Inscripciones</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Contacto</h4><ul class="footer-contact">
+        <li><span>📍</span> Tulcán, Carchi, Ecuador</li>
+        <li><span>✉</span> <a href="mailto:info@alphamindchallenge.com">info@alphamindchallenge.com</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Redes</h4><div class="footer-social" style="margin-top:0;flex-wrap:wrap;">
+        <a href="#" class="social-btn" style="width:auto;padding:0 .75rem;font-family:var(--font-ui);font-size:.6rem;letter-spacing:.1em;">Instagram</a>
+        <a href="#" class="social-btn" style="width:auto;padding:0 .75rem;font-family:var(--font-ui);font-size:.6rem;letter-spacing:.1em;">Facebook</a>
+        <a href="#" class="social-btn" style="width:auto;padding:0 .75rem;font-family:var(--font-ui);font-size:.6rem;letter-spacing:.1em;">TikTok</a>
+      </div></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Alpha Mind Corporation. Todos los derechos reservados.</p>
+      <p style="color:var(--rojo-alpha);">DOMINA · CONQUISTA · LIDERA</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/script.js"></script>
+  <script>
+    // Filtros galería
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        // Aquí se filtraría con data-filter cuando haya imágenes reales
+      });
+    });
+
+    // Pause carousel on hover
+    const track = document.querySelector('.testimonios-track');
+    if (track) {
+      track.parentElement.addEventListener('mouseenter', () => track.style.animationPlayState = 'paused');
+      track.parentElement.addEventListener('mouseleave', () => track.style.animationPlayState = 'running');
+    }
+  </script>
+</body>
+</html>
